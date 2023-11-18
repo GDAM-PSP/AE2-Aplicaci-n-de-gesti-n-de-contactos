@@ -19,11 +19,11 @@ public class Modelo {
 	}
 	
 	
-	//Creamos un método para registrar personas en un archivo binario
+	//Creamos un mï¿½todo para registrar personas en un archivo binario
 	public void registrarPersona(Persona persona) {
 		try {
 			FileOutputStream archivo = new FileOutputStream("registroPersona.bin");
-			AñadirBinario escribir = new AñadirBinario(archivo);
+			AnadirBinario escribir = new AnadirBinario(archivo);
 			
 			escribir.writeObject(persona);
 			escribir.close();
@@ -35,7 +35,7 @@ public class Modelo {
 		}
 	}
 	
-	//Leemos el archivo que hemos creado con los datos de las personas añadidas a la agenda
+	//Leemos el archivo que hemos creado con los datos de las personas aï¿½adidas a la agenda
 	public void leerRegistro() {
 		Persona persona;
 		String nombre, telefono;
@@ -45,7 +45,7 @@ public class Modelo {
 			FileInputStream archivo = new FileInputStream("registroPersona.bin");
 			ObjectInputStream lectura = new ObjectInputStream(archivo);
 			
-			//Creamos un bucle que se repetirá hasta que lea todo el archivo
+			//Creamos un bucle que se repetirï¿½ hasta que lea todo el archivo
 			while(true) {
 				persona = (Persona)lectura.readObject();
 				nombre = persona.getNombre();
