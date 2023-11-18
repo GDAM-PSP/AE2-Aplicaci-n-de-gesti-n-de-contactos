@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 
 import modelo.Modelo;
 import vista.Vista;
+import vista.VistaAnadir;
+import vista.VistaEditar;
 
 public class Controlador extends MouseAdapter{
 	private Vista vista;
@@ -21,11 +23,14 @@ public class Controlador extends MouseAdapter{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource()==vista.getAddContacto()) {
-			System.out.println("le has dado click a añadir contacto");
-			
+			System.out.println("le has dado click a aï¿½adir contacto");
+			VistaAnadir vistaAnadir = new VistaAnadir();
+			ControladorAnadir controladorAnadir = new ControladorAnadir(vistaAnadir);
 		}
 		if(e.getSource()==vista.getEditContacto()) {
 			System.out.println("le has dado click a editar contacto");
+			VistaEditar vistaEditar = new VistaEditar();
+			ControladorEditar controladorEditar = new ControladorEditar(vistaEditar);
 		}
 		if(e.getSource()==vista.getDeleteContacto()) {
 			System.out.println("le has dado click a Eliminar contacto");
