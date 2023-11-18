@@ -26,11 +26,15 @@ public class Controlador extends MouseAdapter{
 			System.out.println("le has dado click a a�adir contacto");
 			VistaAnadir vistaAnadir = new VistaAnadir();
 			ControladorAnadir controladorAnadir = new ControladorAnadir(vistaAnadir);
+			vistaAnadir.addContactosOk(controladorAnadir);
+			vistaAnadir.addContactosCancel(controladorAnadir);
 		}
 		if(e.getSource()==vista.getEditContacto()) {
 			System.out.println("le has dado click a editar contacto");
 			VistaEditar vistaEditar = new VistaEditar();
 			ControladorEditar controladorEditar = new ControladorEditar(vistaEditar);
+			vistaEditar.addContactosOk(controladorEditar);
+			vistaEditar.addContactosCancel(controladorEditar);
 		}
 		if(e.getSource()==vista.getDeleteContacto()) {
 			System.out.println("le has dado click a Eliminar contacto");

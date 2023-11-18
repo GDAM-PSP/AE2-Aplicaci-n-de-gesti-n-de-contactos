@@ -8,6 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import controlador.ControladorAnadir;
+import controlador.ControladorEditar;
+
 public class VistaEditar extends JFrame{
 	JLabel nombre;
 	JTextField textonombre;
@@ -59,5 +62,47 @@ public class VistaEditar extends JFrame{
 		cancel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		cancel.setText("Cancel");
 		add(cancel);
+	}
+	public void addContactosOk(ControladorEditar controlador) {
+		ok.addActionListener(controlador);
+	}
+	public void addContactosCancel(ControladorEditar controlador) {
+		cancel.addActionListener(controlador);
+	}
+	public JLabel getNombre() {
+		return nombre;
+	}
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+	public JTextField getTextonombre() {
+		return textonombre;
+	}
+	public void setTextonombre(JTextField textonombre) {
+		this.textonombre = textonombre;
+	}
+	public JLabel getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(JLabel telefono) {
+		this.telefono = telefono;
+	}
+	public JTextField getTextotelefono() {
+		return textotelefono;
+	}
+	public void setTextotelefono(JTextField textotelefono) {
+		this.textotelefono = textotelefono;
+	}
+	public JButton getOk() {
+		return ok;
+	}
+	public void setOk(JButton ok) {
+		this.ok = ok;
+	}
+	public JButton getCancel() {
+		return cancel;
+	}
+	public void setCancel(JButton cancel) {
+		this.cancel = cancel;
 	}
 }

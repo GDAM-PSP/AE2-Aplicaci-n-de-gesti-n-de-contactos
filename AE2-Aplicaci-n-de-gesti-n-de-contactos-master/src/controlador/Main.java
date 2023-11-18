@@ -10,12 +10,8 @@ import vista.VistaEditar;
 public class Main {
 	public static void main(String[] args) throws SecurityException, IOException {
 		Vista vista = new Vista();
-		
-
 		Modelo modelo = new Modelo();
 		Controlador controlador = new Controlador(vista);
-		
-		
 		vista.addContactos(controlador);
 		vista.editContactos(controlador);
 		vista.deleteContactos(controlador);
