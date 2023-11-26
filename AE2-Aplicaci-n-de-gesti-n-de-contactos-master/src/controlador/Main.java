@@ -4,16 +4,18 @@ import java.io.IOException;
 
 import modelo.Modelo;
 import vista.Vista;
-import vista.VistaAnadir;
-import vista.VistaEditar;
 
 public class Main {
 	public static void main(String[] args) throws SecurityException, IOException {
+		System.out.println("Iniciando aplicacion...");
 		Vista vista = new Vista();
-		Modelo modelo = new Modelo();
-		Controlador controlador = new Controlador(vista);
+		Modelo modelo = new Modelo(vista);
+		Controlador controlador = new Controlador(vista, modelo);
 		vista.addContactos(controlador);
 		vista.editContactos(controlador);
 		vista.deleteContactos(controlador);
+		System.out.println("\r\n"
+				+ "█▀▀ █▀▀ █▀ ▀█▀ █ █▀█ █▄░█   █▀▄ █▀▀   █▀▀ █▀█ █▄░█ ▀█▀ ▄▀█ █▀▀ ▀█▀ █▀█ █▀   █░█ ▄█ ░ █▀█\r\n"
+				+ "█▄█ ██▄ ▄█ ░█░ █ █▄█ █░▀█   █▄▀ ██▄   █▄▄ █▄█ █░▀█ ░█░ █▀█ █▄▄ ░█░ █▄█ ▄█   ▀▄▀ ░█ ▄ █▄█");
 	}
 }

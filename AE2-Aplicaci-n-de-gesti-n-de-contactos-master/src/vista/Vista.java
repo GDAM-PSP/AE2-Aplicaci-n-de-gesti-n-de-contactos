@@ -14,6 +14,10 @@ import javax.swing.table.DefaultTableModel;
 import controlador.Controlador;
 
 public class Vista extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2148362886594534836L;
 	JLabel contactoTexto;
 	JTable table;
 	DefaultTableModel modeloTabla;
@@ -29,62 +33,62 @@ public class Vista extends JFrame{
 		inicializar();
 		setVisible(true);
 	}
+	
 	private void inicializar() {
-		ImageIcon img = new ImageIcon("src/img/agenda.jpg");
+		ImageIcon img = new ImageIcon("src/img/agenda.png");
 		this.setIconImage(img.getImage());
 		
-		//Creo el label con el título
+		//Creo el label con el tï¿½tulo
 		contactoTexto = new JLabel();
-		//La posición del texto
+		//La posiciï¿½n del texto
 		contactoTexto.setBounds(180,50,100,100);
 		//El contenido del texto
 		contactoTexto.setText("Mis Contactos");
 		//El primer numero indica el espacio de largo width --> de las letras y el segundo alto heigh si el texto es mas grande ocupara mas espacio de alto y largo esto se usa para eso
 		contactoTexto.setSize(400,50);
-		//Le añado una nueva fuente que sea Tahoma en negrita y con 50 de tamaño
+		//Le aï¿½ado una nueva fuente que sea Tahoma en negrita y con 50 de tamaï¿½o
 		contactoTexto.setFont(new Font("Tahoma", Font.BOLD, 50));
 		//le cambiamos el color del texto a blue
 		contactoTexto.setForeground(Color.blue);
-		//Lo añadimos todo al JFrame
+		//Lo aï¿½adimos todo al JFrame
 		add(contactoTexto);
 		
 		//Creacion de las columnas
-		String[] datos = {"Nombre","Teléfono"};
+		String[] datos = {"Nombre","Telefono"};
 		//modeloTabla con los datos y 0 lineas de datos que se muestran, si lo cambias a n saldran n lineas en blanco
 		modeloTabla = new DefaultTableModel(datos, 0);
 		
-		//Añadimos a un JTable el modeloTabla
+		//Aï¿½adimos a un JTable el modeloTabla
 		table = new JTable(modeloTabla);
 		
-		//Le añadimos un scrollPane a la tabla y le damos las proporciones
+		//Le aï¿½adimos un scrollPane a la tabla y le damos las proporciones
 		scrollpane = new JScrollPane(table);
 		scrollpane.setBounds(100,150,500,300);
 		add(scrollpane);
 		
 		addContacto = new JLabel();
-		addContacto.setIcon(new ImageIcon("src/img/add.jpg"));
+		addContacto.setIcon(new ImageIcon("src/img/add.png"));
 		addContacto.setBounds(130,500,100,100);
-		//función para escalar las imágenes
+		//funciï¿½n para escalar las imï¿½genes
 		escalarIcono(addContacto);
 		add(addContacto);
 		
-		deleteContacto = new JLabel();
-		deleteContacto.setIcon(new ImageIcon("src/img/delete.jpg"));
-		deleteContacto.setBounds(300,525,50,50);
-		//función para escalar las imágenes
-		escalarIcono(deleteContacto);
-		add(deleteContacto);
-		
 		editContacto = new JLabel();
 		editContacto.setIcon(new ImageIcon("src/img/edit.png"));
-		editContacto.setBounds(400,525,50,50);
-		//función para escalar las imágenes
+		editContacto.setBounds(300,525,50,50);
+		//funciï¿½n para escalar las imï¿½genes
 		escalarIcono(editContacto);
 		add(editContacto);
 		
-		
+		deleteContacto = new JLabel();
+		deleteContacto.setIcon(new ImageIcon("src/img/delete.png"));
+		deleteContacto.setBounds(400,525,50,50);
+		//funciï¿½n para escalar las imï¿½genes
+		escalarIcono(deleteContacto);
+		add(deleteContacto);	
 	}
-	//Esta función reescala las imagenes que le pases para que cuadren
+	
+	//Esta funciï¿½n reescala las imagenes que le pases para que cuadren
 	public void escalarIcono(JLabel label) {
 	    if (label.getIcon() != null) {
 	        ImageIcon icon = (ImageIcon) label.getIcon();
@@ -94,56 +98,72 @@ public class Vista extends JFrame{
 	        label.setIcon(iconoEscalado);
 	    }
 	}
+	
 	public void addContactos(Controlador controlador) {
 		addContacto.addMouseListener(controlador);
 	}
+	
 	public void editContactos(Controlador controlador) {
 		editContacto.addMouseListener(controlador);
 	}
+	
 	public void deleteContactos(Controlador controlador) {
 		deleteContacto.addMouseListener(controlador);
 	}
+	
 	public JLabel getContactoTexto() {
 		return contactoTexto;
 	}
+	
 	public void setContactoTexto(JLabel contactoTexto) {
 		this.contactoTexto = contactoTexto;
 	}
+	
 	public JTable getTable() {
 		return table;
 	}
+	
 	public void setTable(JTable table) {
 		this.table = table;
 	}
+	
 	public DefaultTableModel getModeloTabla() {
 		return modeloTabla;
 	}
+	
 	public void setModeloTabla(DefaultTableModel modeloTabla) {
 		this.modeloTabla = modeloTabla;
 	}
+	
 	public JScrollPane getScrollpane() {
 		return scrollpane;
 	}
+	
 	public void setScrollpane(JScrollPane scrollpane) {
 		this.scrollpane = scrollpane;
 	}
+	
 	public JLabel getAddContacto() {
 		return addContacto;
 	}
+	
 	public void setAddContacto(JLabel addContacto) {
 		this.addContacto = addContacto;
 	}
+	
 	public JLabel getDeleteContacto() {
 		return deleteContacto;
 	}
+	
 	public void setDeleteContacto(JLabel deleteContacto) {
 		this.deleteContacto = deleteContacto;
 	}
+	
 	public JLabel getEditContacto() {
 		return editContacto;
 	}
+	
 	public void setEditContacto(JLabel editContacto) {
 		this.editContacto = editContacto;
-	}
-	
+	}	
 }
