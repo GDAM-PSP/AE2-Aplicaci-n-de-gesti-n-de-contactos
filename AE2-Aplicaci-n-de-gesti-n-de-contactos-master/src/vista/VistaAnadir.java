@@ -8,16 +8,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import controlador.Controlador;
 import controlador.ControladorAnadir;
 
 public class VistaAnadir extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -699932624421057417L;
 	JLabel nombre;
 	JTextField textonombre;
 	JLabel telefono;
 	JTextField textotelefono;
 	JButton ok;
 	JButton cancel;
+	
 	public VistaAnadir() throws HeadlessException {
 		setBounds(900,200,400,300);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -25,6 +29,7 @@ public class VistaAnadir extends JFrame{
 		inicializar();
 		setVisible(true);
 	}
+	
 	public void inicializar() {
 		//El Label del nombre y del telefono se inicializa y se coloca con su respectiva fuente tamaño etc... y se añade
 		nombre = new JLabel();
@@ -63,48 +68,60 @@ public class VistaAnadir extends JFrame{
 		cancel.setText("Cancel");
 		add(cancel);
 	}
+	
 	public void addContactosOk(ControladorAnadir controlador) {
 		ok.addActionListener(controlador);
 	}
+	
 	public void addContactosCancel(ControladorAnadir controlador) {
 		cancel.addActionListener(controlador);
 	}
+	
 	public JLabel getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(JLabel nombre) {
 		this.nombre = nombre;
 	}
+	
 	public JTextField getTextonombre() {
 		return textonombre;
 	}
+	
 	public void setTextonombre(JTextField textonombre) {
 		this.textonombre = textonombre;
 	}
+	
 	public JLabel getTelefono() {
 		return telefono;
 	}
+	
 	public void setTelefono(JLabel telefono) {
 		this.telefono = telefono;
 	}
+	
 	public JTextField getTextotelefono() {
 		return textotelefono;
 	}
+	
 	public void setTextotelefono(JTextField textotelefono) {
 		this.textotelefono = textotelefono;
 	}
+	
 	public JButton getOk() {
 		return ok;
 	}
+	
 	public void setOk(JButton ok) {
 		this.ok = ok;
 	}
+	
 	public JButton getCancel() {
 		return cancel;
 	}
+	
 	public void setCancel(JButton cancel) {
 		this.cancel = cancel;
 	}
-	
-	
 }

@@ -1,11 +1,7 @@
 package controlador;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
-import javax.swing.JLabel;
 
 import modelo.Modelo;
 import vista.Vista;
@@ -16,8 +12,9 @@ public class Controlador extends MouseAdapter{
 	private Vista vista;
 	private Modelo modelo;
 	
-	public Controlador(Vista vista) {
+	public Controlador(Vista vista, Modelo modelo) {
 		this.vista = vista;
+		this.modelo = modelo;
 	}
 	
 	@Override
@@ -25,19 +22,26 @@ public class Controlador extends MouseAdapter{
 		if(e.getSource()==vista.getAddContacto()) {
 			System.out.println("le has dado click a a�adir contacto");
 			VistaAnadir vistaAnadir = new VistaAnadir();
-			ControladorAnadir controladorAnadir = new ControladorAnadir(vistaAnadir);
+			ControladorAnadir controladorAnadir = new ControladorAnadir(vistaAnadir, modelo);
 			vistaAnadir.addContactosOk(controladorAnadir);
 			vistaAnadir.addContactosCancel(controladorAnadir);
 		}
+		
 		if(e.getSource()==vista.getEditContacto()) {
 			System.out.println("le has dado click a editar contacto");
 			VistaEditar vistaEditar = new VistaEditar();
-			ControladorEditar controladorEditar = new ControladorEditar(vistaEditar);
+			ControladorEditar controladorEditar = new ControladorEditar(vistaEditar, modelo);
 			vistaEditar.addContactosOk(controladorEditar);
 			vistaEditar.addContactosCancel(controladorEditar);
 		}
+		
 		if(e.getSource()==vista.getDeleteContacto()) {
 			System.out.println("le has dado click a Eliminar contacto");
+			try {
+				modelo.borrarDato();
+			} catch (ArrayIndexOutOfBoundsException e2) {
+				System.out.println("No se ha seleccionado elemento.");
+			}
 		}
 	}
 }
