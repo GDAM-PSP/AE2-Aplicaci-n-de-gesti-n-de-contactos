@@ -22,6 +22,7 @@ public class ControladorEditar implements ActionListener{
 		} catch (Exception e) {
 			System.out.println("Error en vista editar. Seleccione un contacto.");
 			vista.dispose();
+			throw e;
 		}
 	}
 
